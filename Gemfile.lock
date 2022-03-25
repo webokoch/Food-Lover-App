@@ -296,7 +296,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.4, >= 6.0.4.7)
-  rspec-rails (>= 3.9.0)
+  rspec-rails
   sass-rails (>= 6)
   selenium-webdriver
   simple_form!
