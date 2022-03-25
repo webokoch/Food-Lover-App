@@ -11,7 +11,7 @@ RSpec.describe Food, type: :model do
   }
 
   it "is valid with valid attributes" do
-    expect(subject).to be_valid  
+    expect(subject).to be_valid
   end
 
   it "is not valid without a name" do
@@ -20,7 +20,7 @@ RSpec.describe Food, type: :model do
   end
 
   it "is not valid without a cuisine" do
-    subject.cuisine = nil 
+    subject.cuisine = nil
     expect(subject).to_not be_valid
   end
 
@@ -28,8 +28,25 @@ RSpec.describe Food, type: :model do
     subject.description = nil 
     expect(subject).to_not be_valid
   end
+
   it "is not valid without a user" do
     subject.user = nil 
     expect(subject).to_not be_valid
+  end
+
+  it "is not valid with a description of more than 500 characters" do
+    subject.description = "a" * 501
+    expect(subject).to_not be_valid
+  end
+
+  context 'name uniquness' do
+    before { described_class.create!( name: 'sushi',
+                                      cuisine: 'Japanes',
+                                      description: "Fish and Rice",
+                                      user: current_user) 
+    }
+    it 'is not valid with same name' do
+      expect(subject).to_not be_valid
+    end
   end
 end
