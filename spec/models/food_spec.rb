@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
-  current_user = User.first_or_create!(email: 'dean@example.com', password: 'password', password_confirmation: 'password')
+  current_user = User.first_or_create!(email: 'user@example.com', password: 'password', password_confirmation: 'password')
 
   subject{
     described_class.new(name: 'Sushi',
@@ -18,7 +18,7 @@ RSpec.describe Food, type: :model do
     subject.name = nil
     expect(subject).to_not be_valid
   end
-
+  
   it "is not valid without a cuisine" do
     subject.cuisine = nil
     expect(subject).to_not be_valid
