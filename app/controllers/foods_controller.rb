@@ -1,12 +1,16 @@
 class FoodsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_food, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @foods = Food.all
   end
 
   def show
+  end
+
+  def users_foods
+    @foods = Food.where(user_id: current_user)
   end
 
   def new

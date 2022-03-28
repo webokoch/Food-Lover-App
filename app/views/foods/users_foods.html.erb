@@ -1,0 +1,22 @@
+<h1>All Your Beloved Food</h1>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 p-5">
+  <div class="col">
+    <% @foods.each do |food| %>
+      <h2> <%= food.name %> </h2>
+      <h3> <%= food.cuisine %> </h3>
+      <p> <%= food.description %> </p>
+      <p>
+        <%= link_to(edit_food_path,
+          class: 'btn btn-success text-decoration-none') do %>
+            <spam>Update <%= food.name %></spam>
+          <% end %>
+        <%= link_to food_path(@food), method: :delete,
+          class: 'btn btn-success text-decoration-none',
+          data: { confirm: "Do you really want to delete your Fav Food?" } do %>
+            <spam>Delete <%= food.name %></spam>
+          <% end %>
+      </p> 
+      <% end %>
+  </div>
+</div>
