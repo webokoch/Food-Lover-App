@@ -32,7 +32,7 @@ class FoodsController < ApplicationController
 
   def update
     if @food.update(food_params)
-      redirect_to food_path(@food)
+      redirect_to users_foods_path
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class FoodsController < ApplicationController
 
   def destroy
     @food.destroy
-    redirect_to foods_path
+    redirect_to users_foods_path
   end
 
   private
