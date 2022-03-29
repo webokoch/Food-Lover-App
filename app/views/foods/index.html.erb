@@ -6,7 +6,7 @@
       <% if food.photo.present? %>
           <%= cl_image_tag food.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
       <% else %>
-        <%= image_tag "food-placeholder.jpg", class: "card-img-top" %>
+        <%= image_tag "food-placeholder.jpg", class: "card-img-top card-img-width" %>
       <%end%>
       <div class="card-body">
         <h5 class="card-title"><%= food.name %></h5>
