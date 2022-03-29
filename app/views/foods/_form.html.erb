@@ -1,7 +1,11 @@
-<%= simple_form_for food do |f| %>
-  <%= f.input :name %>
-  <%= f.input :cuisine %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :file %> 
-  <%= f.submit %>
-<% end %>
+<div class="container-form">
+  <%= simple_form_for food do |f| %>
+    <%= f.input :name %>
+    <%= f.input :cuisine %>
+    <%= f.input :description %>
+    <%= f.input :photo, as: :file %> 
+    <div class="d-grid gap-2 mt-5">
+      <%= f.submit class: "btn-primary " %>
+    </div>
+  <% end %>
+</div>
