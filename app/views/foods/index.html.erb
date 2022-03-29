@@ -4,11 +4,16 @@
   <% @foods.each do |food| %>
     <div class="col">
       <div class="card" style="width: 18rem;">
+        <% if food.photo.present? %>
+           <%= cl_image_tag food.photo.key, class: "card-img-top" %>
+        <% else %>
+          <%= image_tag "food-placeholder.jpg", class: "card-img-top" %>
+        <%end%>
         <div class="card-body">
-            <h5 class="card-title"><%= food.name %></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><%= food.cuisine %></h6>
-            <p class="card-text"><%= food.description %></p>
-            <%= link_to food.name, food_path(food), class: "card-link" %>
+          <h5 class="card-title"><%= food.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= food.cuisine %></h6>
+          <p class="card-text"><%= food.description %></p>
+          <%= link_to food.name, food_path(food), class: "card-link" %>
         </div>
       </div>
     </div>
