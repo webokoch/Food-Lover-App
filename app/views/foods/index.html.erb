@@ -1,20 +1,18 @@
 <h1 class="ms-5">Foods To Love</h1>
 
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 p-5">
+<div class="food-cards">
   <% @foods.each do |food| %>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <% if food.photo.present? %>
-           <%= cl_image_tag food.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
-        <% else %>
-          <%= image_tag "food-placeholder.jpg", class: "card-img-top" %>
-        <%end%>
-        <div class="card-body">
-          <h5 class="card-title"><%= food.name %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= food.cuisine %></h6>
-          <p class="card-text"><%= food.description %></p>
-          <%= link_to food.name, food_path(food), class: "card-link" %>
-        </div>
+    <div class="card">
+      <% if food.photo.present? %>
+          <%= cl_image_tag food.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
+      <% else %>
+        <%= image_tag "food-placeholder.jpg", class: "card-img-top" %>
+      <%end%>
+      <div class="card-body">
+        <h5 class="card-title"><%= food.name %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= food.cuisine %></h6>
+        <p class="card-text"><%= food.description %></p>
+        <%= link_to food.name, food_path(food), class: "card-link" %>
       </div>
     </div>
   <% end %>
