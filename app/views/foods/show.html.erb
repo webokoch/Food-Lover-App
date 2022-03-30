@@ -2,4 +2,15 @@
   <h2> <%= @food.name %> </h2>
   <h3> <%= @food.cuisine %> </h3>
   <p> <%= @food.description %> </p>
+
+  <ul class="list-group">
+    <% @food.food_reviews.each do |food_review| %>
+      <li class="list-group-item">
+        <% food_review.rating.times do %>
+        ⭐️
+        <% end %> 
+        <%= food_review.content %>
+      </li>
+    <% end %>
+  </ul>
 </div>
