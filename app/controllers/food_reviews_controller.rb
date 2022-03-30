@@ -6,7 +6,13 @@ class FoodReviewsController < ApplicationController
   end
 
   def create
-
+    @food_review = FoodReview.new(food_review_params)
+    @food_review.food = @food
+    if @food_review.save
+      redirect_to food_path(@food)
+    else
+      render :new
+    end
   end
 
   private
