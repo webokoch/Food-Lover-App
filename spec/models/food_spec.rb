@@ -1,15 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
+
   current_user = User.first_or_create!(email: 'user@example.com', password: 'password', password_confirmation: 'password')
 
-  subject{
-    described_class.new(name: 'Sushi',
-                        cuisine: 'Japanese',
-                        description: 'A staple rice dish, consisting of cooked rice flavoured with vinegar and a variety of vegetable, egg, or raw seafood garnishes and served cold.',
+  subject {
+    described_class.new(name: 'Pizza',
+                        cuisine: 'Italian',
+                        description: 'Pizza is a flat base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients (such as anchovies, mushrooms, onions, olives, pineapple, meat, etc.), which is then baked at a high temperature, traditionally in a wood-fired oven.',
                         user: current_user)
-  }
-
+    }
+    
   it "is valid with valid attributes" do
     expect(subject).to be_valid
   end
@@ -21,6 +22,7 @@ RSpec.describe Food, type: :model do
   
   it "is not valid without a cuisine" do
     subject.cuisine = nil
+
     expect(subject).to_not be_valid
   end
 
@@ -40,7 +42,7 @@ RSpec.describe Food, type: :model do
   end
 
   context 'name uniquness' do
-    before { described_class.create!( name: 'sushi',
+    before { described_class.create!( name: 'pizza',
                                       cuisine: 'Japanes',
                                       description: "Fish and Rice",
                                       user: current_user) 
