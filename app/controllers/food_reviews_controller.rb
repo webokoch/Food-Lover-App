@@ -7,7 +7,7 @@ class FoodReviewsController < ApplicationController
     if @food_review.save
       redirect_to food_path(@food)
     else
-      render :new
+      render 'foods/show'
     end
   end
 

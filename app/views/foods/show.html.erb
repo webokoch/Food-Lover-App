@@ -9,10 +9,6 @@
       <h5 class="card-title"><%= @food.name %></h5>
       <h6 class="card-subtitle mb-2 text-muted"><%= @food.cuisine %></h6>
       <p class="card-text"><%= @food.description %></p>
-      <%= link_to new_food_food_review_path(@food),
-        class: "btn btn-primary ms-3 float-end" do %>
-          <spam>Leave a Review</spam>
-        <% end %>
       <p class="float-end p-1">
         <% if @food.average_rating.to_i > 0 %>
           <% @food.average_rating.to_i.times do %>
@@ -22,6 +18,9 @@
         <% else %>
           No Rating yet
         <% end %>
+        <button type="button" class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Leave a Review
+        </button>
       </p>
     </div>   
   </div>
@@ -35,24 +34,16 @@
       </li>
     <% end %>
   </ul>
-
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content p-5">
         <%= simple_form_for( [ @food, @food_review], remote: true ) do |f| %>
           <%= f.input :rating %>
           <%= f.input :content %>
-          <%= f.submit class: "btn-primary " %>
+          <%= f.submit class: "btn-primary" %>
         <% end %>
+      </div>
     </div>
   </div>
-</div>
-
-
-
 </div>
