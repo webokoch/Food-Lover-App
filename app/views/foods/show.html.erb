@@ -3,7 +3,7 @@
   <h3> <%= @food.cuisine %> </h3>
   <p> <%= @food.description %> </p>
   <ul class="list-group">
-    <% @food.food_reviews.each do |food_review| %>
+    <% @food.food_reviews.order('created_at desc').each do |food_review| %>
       <li class="list-group-item">
         <% food_review.rating.times do %>
         ⭐️
