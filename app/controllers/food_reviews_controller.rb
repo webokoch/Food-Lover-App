@@ -1,10 +1,6 @@
 class FoodReviewsController < ApplicationController
   before_action :find_food
 
-  def new
-    @food_review = FoodReview.new
-  end
-
   def create
     @food_review = FoodReview.new(food_review_params)
     @food_review.food = @food
