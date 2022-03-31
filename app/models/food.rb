@@ -5,4 +5,12 @@ class Food < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
   has_many :food_reviews, dependent: :destroy
+
+  def average_rating
+    if food_reviews.exists?
+      food_reviews.average(:rating).round(2)
+    else
+      'undefined'
+    end
+  end
 end
