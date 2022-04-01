@@ -24,26 +24,6 @@
       </p>
     </div>   
   </div>
-  <ul class="list-group">
-    <% @food.food_reviews.order('created_at desc').each do |food_review| %>
-      <li class="list-group-item">
-        <% food_review.rating.times do %>
-        ⭐️
-        <% end %> 
-        <%= food_review.content %>
-      </li>
-    <% end %>
-  </ul>
-<!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content p-5">
-        <%= simple_form_for( [ @food, @food_review], remote: true ) do |f| %>
-          <%= f.input :rating %>
-          <%= f.input :content %>
-          <%= f.submit class: "btn-primary" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <%= render 'food_reviews' %>
+  <%= render 'modal' %>
 </div>
