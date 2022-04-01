@@ -1,29 +1,5 @@
 <div class="m-5">
-  <div class="card mb-3">
-    <% if @food.photo.present? %>
-        <%= cl_image_tag @food.photo.key, crop: :fill, class: "card-img-top card-img-height" %>
-    <% else %>
-      <%= image_tag "food-placeholder.jpg", class: "card-img-top card-img-height" %>
-    <%end%>
-    <div class="card-body">
-      <h5 class="card-title"><%= @food.name %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= @food.cuisine %></h6>
-      <p class="card-text"><%= @food.description %></p>
-      <p class="float-end p-1">
-        <% if @food.average_rating.to_i > 0 %>
-          <% @food.average_rating.to_i.times do %>
-            ⭐️
-          <% end %>
-        <%= @food.average_rating %>
-        <% else %>
-          No Rating yet
-        <% end %>
-        <button type="button" class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Leave a Review
-        </button>
-      </p>
-    </div>   
-  </div>
+  <%= render 'food_card' %>
   <%= render 'food_reviews' %>
   <%= render 'modal' %>
 </div>
