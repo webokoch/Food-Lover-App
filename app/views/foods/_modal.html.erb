@@ -1,0 +1,11 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content p-5">
+      <%= simple_form_for( [ @food, @food_review], remote: true ) do |f| %>
+        <%= f.input :rating %>
+        <%= f.input :content %>
+        <%= f.submit class: "btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
