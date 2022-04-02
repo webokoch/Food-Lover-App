@@ -29,8 +29,8 @@
       <% end %>
     </ul>
   </div>
-  <form class="d-flex me-2">
-    <input class="form-control me-2" type="text" placeholder="Search">
-    <button class="btn btn-dark" type="button">Search</button>
-  </form>
+  <%= simple_form_for :query, url: foods_path, method: "GET", html: { class: "d-flex me-2" } do |f| %>
+      <%= f.input :name, label: false, placeholder: "Search", class: "form-control me-2" %>   
+      <%= f.submit "Search", class: "btn btn-dark" %>
+    <% end %>
 </nav>
