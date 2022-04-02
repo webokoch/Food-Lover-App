@@ -3,7 +3,11 @@ class FoodsController < ApplicationController
   before_action :find_food, only: [:show, :edit, :update, :destroy]
 
   def index
-    @foods = Food.all
+    if params[:query].present?
+      @foods = Food.search_foods(query_params[:query])
+    else
+      @foods = Food.all
+    end
   end
 
   def show
@@ -52,5 +56,9 @@ class FoodsController < ApplicationController
 
   def food_params
     params.require(:food).permit(:name, :cuisine, :description, :photo)
+  end
+
+  def query_params
+    params.require(:query).permit(:query) if params[:query].present?
   end
 end

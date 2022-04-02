@@ -6,6 +6,13 @@ class Food < ApplicationRecord
   has_one_attached :photo
   has_many :food_reviews, dependent: :destroy
 
+  include PgSearch::Model
+  pg_search_scope :search_foods,
+    against: [ :name, :cuisine ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def average_rating
     if food_reviews.exists?
       food_reviews.average(:rating).round(2)
