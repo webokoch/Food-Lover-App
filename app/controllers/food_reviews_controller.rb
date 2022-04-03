@@ -5,7 +5,7 @@ class FoodReviewsController < ApplicationController
     @food_review = FoodReview.new(food_review_params)
     @food_review.food = @food
     if @food_review.save
-      redirect_to food_path(@food)
+      redirect_to food_path(@food, anchor: "food-review-#{@food_review.id}")
     else
       render 'foods/show'
     end
