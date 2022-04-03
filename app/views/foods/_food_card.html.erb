@@ -17,9 +17,7 @@
       <% else %>
         No Rating yet
       <% end %>
-      <button type="button" class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Leave a Review
-      </button>
+      <%= link_to "Leave a Review", new_food_food_review_path(@food), class: "btn btn-primary ms-3"  %>
     </p>
   </div>   
 </div>
