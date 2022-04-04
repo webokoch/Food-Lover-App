@@ -1,0 +1,11 @@
+<div class="container-form">
+  <%= simple_form_for restaurant do |f| %>
+    <%= f.input :name %>
+    <%= f.input :cuisine %>
+    <%= f.input :location %>
+    <%= f.input :description %>
+    <div class="d-grid gap-2 mt-5">
+      <%= f.submit class: "btn-primary" %>
+    </div>
+  <% end %> 
+</div>
