@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :find_food, only: [:show, :edit, :update, :destroy]
+  before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
     @restaurants = Restaurant.all
@@ -21,7 +21,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
     if @restaurant.save
-      redirect_to restaurant_path(@restaurant)
+      redirect_to users_restaurants_path
     else
       render :new
     end
@@ -32,7 +32,7 @@ class RestaurantsController < ApplicationController
 
   def update
     if @restaurant.update(restaurant_params)
-      redirect_to users_foods_path
+      redirect_to users_restaurants_path
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class RestaurantsController < ApplicationController
 
   def destroy
     @restaurant.destroy
-    redirect_to users_foods_path
+    redirect_to users_restaurants_path
   end
 
   private
