@@ -1,24 +1,26 @@
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 p-5">
-  <% @foods.each do |food| %>
-    <div class="col">
-      <div class="card m-2" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title"><%= food.name %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= food.cuisine %></h6>
-          <p class="card-text"><%= food.description %></p>
-          <div class="d-grid gap-2">
-            <%= link_to edit_food_path(food),
-              class: "btn btn-primary m-1" do %>
-                <spam>Update <%= food.name %></spam>
-              <% end %>
-            <%= link_to food_path(food), method: :delete,
-              class: "btn btn-warning m-1",
-              data: { confirm: "Do you really want to delete your Fav Food?" } do %>
-                <spam>Delete <%= food.name %></spam>
-              <% end %>
+<% if @foods.present? %>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 p-5">
+    <% @foods.each do |food| %>
+      <div class="col">
+        <div class="card m-2" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= food.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= food.cuisine %></h6>
+            <p class="card-text"><%= food.description %></p>
+            <div class="d-grid gap-2">
+              <%= link_to edit_food_path(food),
+                class: "btn btn-primary m-1" do %>
+                  <spam>Update <%= food.name %></spam>
+                <% end %>
+              <%= link_to food_path(food), method: :delete,
+                class: "btn btn-warning m-1",
+                data: { confirm: "Do you really want to delete your Fav Food?" } do %>
+                  <spam>Delete <%= food.name %></spam>
+                <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
