@@ -9,6 +9,10 @@ class RestaurantsController < ApplicationController
   def show
   end
 
+  def users_restaurants
+    @restaurants = Restaurant.where(user_id: current_user)
+  end
+
   def new
     @restaurant = Restaurant.new
   end
@@ -28,7 +32,7 @@ class RestaurantsController < ApplicationController
 
   def update
     if @restaurant.update(restaurant_params)
-      redirect_to restaurant_path(@restaurant)
+      redirect_to users_foods_path
     else
       render :edit
     end
@@ -36,7 +40,7 @@ class RestaurantsController < ApplicationController
 
   def destroy
     @restaurant.destroy
-    redirect_to restaurants_path
+    redirect_to users_foods_path
   end
 
   private
