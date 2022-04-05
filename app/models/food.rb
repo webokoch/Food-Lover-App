@@ -13,6 +13,9 @@ class Food < ApplicationRecord
       tsearch: { prefix: true }
     }
 
+  include PgSearch::Model
+  multisearchable against: [:name, :cuisine]
+
   def average_rating
     if food_reviews.exists?
       food_reviews.average(:rating).round(2)

@@ -4,4 +4,7 @@ class Restaurant < ApplicationRecord
   validates :location, presence: true
   validates :description, presence: true, length: { maximum: 500 }
   belongs_to :user
+
+include PgSearch::Model
+multisearchable against: [:name, :cuisine, :location]
 end
