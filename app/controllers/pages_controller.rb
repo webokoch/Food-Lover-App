@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def search
-    @foods = Food.search_foods(query_params[:query])
+    @results = PgSearch.multisearch(query_params[:query])
   end
 
   private
