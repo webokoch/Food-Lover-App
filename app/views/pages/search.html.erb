@@ -32,7 +32,7 @@
         <% if result.searchable.photo.present? %>
             <%= cl_image_tag result.searchable.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
         <% else %>
-          <%= image_tag "food-placeholder.jpg", class: "card-img-top card-img-width" %>
+          <%= image_tag "restaurant-placeholder.jpg", class: "card-img-top card-img-width" %>
         <%end%>
         <div class="card-body">
           <h5 class="card-title"><%= result.searchable.name %></h5>
