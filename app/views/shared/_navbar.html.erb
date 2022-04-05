@@ -32,7 +32,7 @@
       <% end %>
     </ul>
   </div>
-  <%= simple_form_for :query, url: foods_path, method: "GET", html: { class: "d-flex me-2" } do |f| %>
+  <%= simple_form_for :query, url: search_path, method: "GET", html: { class: "d-flex me-2" } do |f| %>
       <%= f.input :query, label: false, placeholder: "Search", class: "form-control me-2" %>   
       <%= f.submit "Search", class: "btn btn-dark" %>
     <% end %>
