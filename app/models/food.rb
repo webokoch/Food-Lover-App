@@ -7,13 +7,6 @@ class Food < ApplicationRecord
   has_many :food_reviews, dependent: :destroy
 
   include PgSearch::Model
-  pg_search_scope :search_foods,
-    against: [ :name, :cuisine ],
-    using: {
-      tsearch: { prefix: true }
-    }
-
-  include PgSearch::Model
   multisearchable against: [:name, :cuisine]
 
   def average_rating
