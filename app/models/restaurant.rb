@@ -3,6 +3,7 @@ class Restaurant < ApplicationRecord
   validates :cuisine, presence: true
   validates :location, presence: true
   validates :description, presence: true, length: { maximum: 500 }
+  has_one_attached :photo
   belongs_to :user
 
 include PgSearch::Model
