@@ -12,11 +12,11 @@
         <h6 class="card-subtitle mb-2 text-muted"><%= food.cuisine %></h6>
         <p class="card-text"><%= food.description %></p>
         <p class="float-end">
-          <% if food.average_rating.to_i > 0 %>
-            <% food.average_rating.to_i.times do %>
+          <% if food.avg_rating > 0.0 %>
+            <% food.avg_rating.to_i.times do %>
               ⭐️
             <% end %>
-          <%= food.average_rating %>
+          <%= food.avg_rating %>
           <% else %>
             No Rating yet
           <% end %>

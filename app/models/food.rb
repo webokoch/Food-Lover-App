@@ -13,8 +13,7 @@ class Food < ApplicationRecord
     if food_reviews.exists?
       @avg = food_reviews.average(:rating).round(2)
       update_attributes(avg_rating: @avg)
-      return @avg
-    else 
+    else
       'undefined'
     end
   end
