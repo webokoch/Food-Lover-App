@@ -5,6 +5,6 @@ class FoodReview < ApplicationRecord
   after_create :update_food_rating
 
   def update_food_rating
-    food.update_average_rating
+    food.average_rating
   end
 end
