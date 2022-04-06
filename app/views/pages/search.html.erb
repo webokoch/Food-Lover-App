@@ -14,11 +14,11 @@
           <h6 class="card-subtitle mb-2 text-muted"><%= result.searchable.cuisine %></h6>
           <p class="card-text"><%= result.searchable.description %></p>
           <p class="float-end">
-            <% if result.searchable.average_rating.to_i > 0 %>
-              <% result.searchable.average_rating.to_i.times do %>
+            <% if result.searchable.avg_rating > 0 %>
+              <% result.searchable.avg_rating.to_i.times do %>
                 ⭐️
               <% end %>
-            <%= result.searchable.average_rating %>
+            <%= result.searchable.avg_rating %>
             <% else %>
               No Rating yet
             <% end %>
