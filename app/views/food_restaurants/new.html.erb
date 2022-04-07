@@ -1,0 +1,6 @@
+<%= simple_form_for [@food, @food_restaurant] do |f| %>
+      <%= f.input :restaurant_id, collection: Restaurant.all %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+    
+
