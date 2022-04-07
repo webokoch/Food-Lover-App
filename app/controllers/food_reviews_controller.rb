@@ -8,6 +8,7 @@ class FoodReviewsController < ApplicationController
   def create
     @food_review = FoodReview.new(food_review_params)
     @food_review.food = @food
+    @food_review.user = current_user
     if @food_review.save
       redirect_to food_path(@food, anchor: "food-review-#{@food_review.id}")
     else
