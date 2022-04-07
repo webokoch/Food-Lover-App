@@ -5,7 +5,8 @@ class Restaurant < ApplicationRecord
   validates :description, presence: true, length: { maximum: 500 }
   has_one_attached :photo
   belongs_to :user
+  has_many :foods, through: :food_restaurants
 
-include PgSearch::Model
-multisearchable against: [:name, :cuisine, :location]
+  include PgSearch::Model
+  multisearchable against: [:name, :cuisine, :location]
 end
