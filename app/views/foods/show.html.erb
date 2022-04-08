@@ -7,6 +7,8 @@
       <%= render 'food_reviews' %>
     </div>
   <div>
-  <h2 class="mb-5">Best Recommended Places To Eat <%= @food.name %> In Berlin</h2>
-    <%= render 'restaurant_cards' %>
+  <% if @food.restaurants.present? %>
+    <h2 class="mb-5">Best Recommended Places To Eat <%= @food.name %> In Berlin</h2>
+      <%= render 'restaurant_cards' %>
+  <% end %>
 </div>
