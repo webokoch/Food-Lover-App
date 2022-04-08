@@ -1,4 +1,31 @@
 <div class="m-5">
-  <%= render 'food_card' %>
-  <%= render 'food_reviews' %>
+  <div class="row">
+    <div class="col-md-8">
+      <%= render 'food_card' %>
+    </div>
+    <div class="col-md-4">
+      <%= render 'food_reviews' %>
+    </div>
+  <div>
+  <h2 class="mb-5">Best Recommended Places To Eat <%= @food.name %> In Berlin</h2>
+  <% @food.restaurants.each do |restaurant| %>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <% if restaurant.photo.present? %>
+          <%= cl_image_tag @food.photo.key, crop: :fill, class: "img-fluid rounded-start" %>
+        <% else %>
+          <%= image_tag "restaurant-placeholder.jpg", class: "img-fluid rounded-start" %>
+        <%end%>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= restaurant.name %></h5>
+          <p class="card-text"><%= restaurant.description %></p>
+          <p class="card-text"><small class="text-muted"><%= restaurant.location%></small></p>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <% end %>
 </div>
