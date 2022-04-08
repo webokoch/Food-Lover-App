@@ -18,3 +18,8 @@ require("channels")
 
 import "controllers"
 import "bootstrap"
+import { previewImageOnFileSelect } from '../components/photo_preview';
+
+document.addEventListener('turbolinks:load', () => {
+  previewImageOnFileSelect();
+});
