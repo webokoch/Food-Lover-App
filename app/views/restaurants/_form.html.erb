@@ -4,7 +4,7 @@
     <%= f.input :cuisine %>
     <%= f.input :location %>
     <%= f.input :description %>
-    <%= f.input :photo, as: :file %> 
+    <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
     <div class="d-grid gap-2 mt-5">
       <%= f.submit class: "btn-primary" %>
     </div>
