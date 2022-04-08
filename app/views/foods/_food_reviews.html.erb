@@ -1,6 +1,6 @@
 <ul class="list-group">
   <% @food.food_reviews.order('created_at desc').each do |food_review| %>
-    <li class="list-group-item" id="food-review-<%= food_review.id %>">
+    <li class="list-group-item mb-3" id="food-review-<%= food_review.id %>">
       <% food_review.rating.times do %>
       ⭐️
       <% end %> 
