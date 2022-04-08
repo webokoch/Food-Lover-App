@@ -8,6 +8,9 @@
     <h5 class="card-title"><%= @food.name %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= @food.cuisine %></h6>
     <p class="card-text"><%= @food.description %></p>
-    <%= render '/shared/star_rating', food: @food%>
+    <div class="d-flex float-end">
+      <%= render '/shared/star_rating', food: @food%>
+      <%= link_to "Leave a Review", new_food_food_review_path(@food), class: "btn btn-primary ms-3" %>
+    </div>
   </div>   
 </div>
