@@ -19,4 +19,8 @@ class Food < ApplicationRecord
       'undefined'
     end
   end
+
+  def avg_rating_percentage 
+    avg_rating.round(1).to_f*100/5
+  end
 end
