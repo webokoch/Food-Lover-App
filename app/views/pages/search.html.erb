@@ -13,16 +13,7 @@
           <h5 class="card-title"><%= result.searchable.name %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= result.searchable.cuisine %></h6>
           <p class="card-text"><%= result.searchable.description %></p>
-          <p class="float-end">
-            <% if result.searchable.avg_rating > 0 %>
-              <% result.searchable.avg_rating.to_i.times do %>
-                ⭐️
-              <% end %>
-            <%= result.searchable.avg_rating %>
-            <% else %>
-              No Rating yet
-            <% end %>
-          </p>
+          <%= render '/shared/star_rating', food: result.searchable %>
         </div>   
       </div>
       <% end %>
