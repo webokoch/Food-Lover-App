@@ -7,6 +7,7 @@ class Food < ApplicationRecord
   has_many :food_reviews, dependent: :destroy
   has_many :food_restaurants, dependent: :destroy
   has_many :restaurants, through: :food_restaurants
+  has_many :likes, dependent: :destroy
 
   include PgSearch::Model
   multisearchable against: [:name, :cuisine]

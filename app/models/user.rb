@@ -6,5 +6,6 @@ class User < ApplicationRecord
   has_many :foods, dependent: :destroy
   has_many :food_reviews, dependent: :destroy
   has_many :restaurants, dependent: :destroy
+  has_many :likes, dependent: :destroy
   
 end
