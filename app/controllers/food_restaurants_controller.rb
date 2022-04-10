@@ -1,5 +1,5 @@
 class FoodRestaurantsController < ApplicationController
-  before_action :set_food
+  before_action :find_food
 
   def new
     @food_restaurant = FoodRestaurant.new
@@ -16,7 +16,7 @@ class FoodRestaurantsController < ApplicationController
 
   private
 
-  def set_food
+  def find_food
     @food = Food.find(params[:food_id])
   end
 
