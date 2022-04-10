@@ -9,6 +9,8 @@
     <h6 class="card-subtitle mb-2 text-muted"><%= @food.cuisine %></h6>
     <p class="card-text"><%= @food.description %></p>
     <div class="d-flex float-end">
+      <%= button_to 'Like', food_likes_path(@food), method: :post %>
+      <p><%= @food.likes.count %> <%= (@food.likes.count) == 1 ? 'Like' : 'Likes'%></p>
       <%= render '/shared/star_rating', food: @food%>
       <%= link_to "Leave a Review", new_food_food_review_path(@food), class: "btn btn-primary ms-3" %>
     </div>

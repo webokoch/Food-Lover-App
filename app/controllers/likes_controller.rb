@@ -12,7 +12,7 @@ class LikesController < ApplicationController
 
   private
 
-  def find_post
+  def find_food
     @food = Food.find(params[:food_id])
   end
 
