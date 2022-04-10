@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :foods do
     resources :food_reviews, only: [ :new, :create ]
     resources :food_restaurants, only: [ :new, :create ]
+    resources :likes, only: :create
   end
   resources :restaurants
   get "/users_foods", to: 'foods#users_foods'
