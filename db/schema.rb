@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_07_161026) do
+ActiveRecord::Schema.define(version: 2022_04_10_185906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 2022_04_07_161026) do
     t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "food_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_id"], name: "index_likes_on_food_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -105,5 +114,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_161026) do
   add_foreign_key "food_reviews", "foods"
   add_foreign_key "food_reviews", "users"
   add_foreign_key "foods", "users"
+  add_foreign_key "likes", "foods"
+  add_foreign_key "likes", "users"
   add_foreign_key "restaurants", "users"
 end
