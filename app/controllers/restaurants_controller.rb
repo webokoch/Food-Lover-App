@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = policy_scope(Restaurant)
   end
 
   def show
@@ -11,15 +11,18 @@ class RestaurantsController < ApplicationController
 
   def users_restaurants
     @restaurants = Restaurant.where(user_id: current_user)
+    authorize @restaurants
   end
 
   def new
     @restaurant = Restaurant.new
+    authorize @restaurant
   end
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
+    authorize @restaurant
     if @restaurant.save
       redirect_to users_restaurants_path
     else
@@ -47,6 +50,7 @@ class RestaurantsController < ApplicationController
 
   def find_restaurant
     @restaurant = Restaurant.find(params[:id])
+    authorize @restaurant
   end
 
   def restaurant_params
