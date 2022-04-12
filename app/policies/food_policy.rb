@@ -5,7 +5,7 @@ class FoodPolicy < ApplicationPolicy
     end
   end
 
-  def new?
+  def create?
     true
   end
 end

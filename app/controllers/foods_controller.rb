@@ -22,6 +22,7 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     @food.user = current_user
+    authorize @food
     if @food.save
       redirect_to food_path(@food)
     else
