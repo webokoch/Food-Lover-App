@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
   before_action :find_food, only: [:show, :edit, :update, :destroy]
 
   def index
-      @foods = Food.all
+    @foods = policy_scope(Food)
   end
 
   def show
@@ -12,15 +12,18 @@ class FoodsController < ApplicationController
 
   def users_foods
     @foods = Food.where(user_id: current_user)
+    authorize @foods
   end
 
   def new
     @food = Food.new
+    authorize @food
   end
 
   def create
     @food = Food.new(food_params)
     @food.user = current_user
+    authorize @food
     if @food.save
       redirect_to food_path(@food)
     else
@@ -48,6 +51,7 @@ class FoodsController < ApplicationController
 
   def find_food
     @food = Food.find(params[:id])
+    authorize @food
   end
 
   def food_params
