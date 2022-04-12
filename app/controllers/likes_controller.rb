@@ -2,6 +2,7 @@ class LikesController < ApplicationController
   before_action :find_food
 
   def create
+    authorize @food.likes
     if already_liked?
       flash[:notice] = "You can't like more than once"
     else
