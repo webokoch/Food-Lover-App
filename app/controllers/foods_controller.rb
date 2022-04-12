@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
   before_action :find_food, only: [:show, :edit, :update, :destroy]
 
   def index
-      @foods = Food.all
+    @foods = Food.all
   end
 
   def show
