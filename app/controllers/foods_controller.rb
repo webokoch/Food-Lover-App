@@ -50,6 +50,7 @@ class FoodsController < ApplicationController
 
   def find_food
     @food = Food.find(params[:id])
+    authorize @food
   end
 
   def food_params
