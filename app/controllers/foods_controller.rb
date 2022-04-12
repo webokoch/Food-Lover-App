@@ -16,6 +16,7 @@ class FoodsController < ApplicationController
 
   def new
     @food = Food.new
+    authorize @food
   end
 
   def create
