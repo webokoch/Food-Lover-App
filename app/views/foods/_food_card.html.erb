@@ -12,7 +12,7 @@
       <%= button_to food_likes_path(@food), method: :post, class: "btn-like"  do %>
         <i class="fa-solid fa-thumbs-up"></i>
         <% end %>  
-      <p><%= @food.likes.count %> <%= (@food.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+      <p><%= pluralize(@food.likes.count, 'Like')%></p>
       <%= render '/shared/star_rating', food: @food%>
       <%= link_to "Leave a Review", new_food_food_review_path(@food), class: "btn btn-primary ms-3" %>
     </div>
