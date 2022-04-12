@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
   before_action :find_food, only: [:show, :edit, :update, :destroy]
 
   def index
-    @foods = Food.all
+    @foods = policy_scope(Food)
   end
 
   def show
@@ -12,6 +12,7 @@ class FoodsController < ApplicationController
 
   def users_foods
     @foods = Food.where(user_id: current_user)
+    authorize @foods
   end
 
   def new

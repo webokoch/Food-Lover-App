@@ -9,6 +9,10 @@ class FoodPolicy < ApplicationPolicy
     true
   end
 
+  def users_foods?
+    true
+  end
+
   def create?
     true
   end
