@@ -6,9 +6,9 @@ class LikesController < ApplicationController
     if already_liked?
       flash[:notice] = "You can't like more than once"
     else
-    @food.likes.create(user_id: current_user.id)
-    redirect_to food_path(@food)
+      @food.likes.create(user_id: current_user.id)
     end
+    redirect_to food_path(@food)
   end
 
   private
