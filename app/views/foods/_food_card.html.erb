@@ -4,15 +4,17 @@
   <% else %>
     <%= image_tag "food-placeholder.jpg", class: "card-img-top card-img-height" %>
   <%end%>
-  <div class="card-body">
+  <div class="card-body position-relative">
     <h5 class="card-title"><%= @food.name %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= @food.cuisine %></h6>
     <p class="card-text"><%= @food.description %></p>
-    <div class="d-flex float-end">
+    <div class="like d-flex flex-column align-items-center">
       <%= button_to food_likes_path(@food), method: :post, class: "btn-like"  do %>
         <i class="fa-solid fa-thumbs-up"></i>
         <% end %>  
       <p><%= pluralize(@food.likes.count, 'Like')%></p>
+    </div>
+    <div class="d-flex float-end">
       <%= render '/shared/star_rating', food: @food%>
       <%= link_to "Leave a Review", new_food_food_review_path(@food), class: "btn btn-primary ms-3" %>
     </div>
