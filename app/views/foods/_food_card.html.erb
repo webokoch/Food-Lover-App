@@ -8,7 +8,7 @@
     <h5 class="card-title"><%= @food.name %></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= @food.cuisine %></h6>
     <p class="card-text"><%= @food.description %></p>
-    <div class="like d-flex flex-column align-items-center">
+    <div class="like-position position-absolute d-flex flex-column align-items-center">
       <%= button_to food_likes_path(@food), method: :post, class: "btn-like"  do %>
         <i class="fa-solid fa-thumbs-up"></i>
         <% end %>  
