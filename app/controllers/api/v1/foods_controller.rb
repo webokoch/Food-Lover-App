@@ -1,4 +1,4 @@
-class Api::V1::RestaurantsController < Api::V1::BaseController
+class Api::V1::FoodsController < Api::V1::BaseController
   def index
     @foods = policy_scope(Food)
   end
