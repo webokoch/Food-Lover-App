@@ -10,7 +10,7 @@ class Api::V1::FoodsController < Api::V1::BaseController
 
   private
 
-  def set_food
+  def find_food
     @food = Food.find(params[:id])
     authorize @food
   end
