@@ -27,6 +27,8 @@ gem 'pundit'
 gem 'cloudinary', '~> 1.16.0'
 # Devise
 gem 'devise'
+# Geocoder
+gem "geocoder"
 #PG Search
 gem 'pg_search', '~> 2.3.0'
 # Use Active Storage variant
