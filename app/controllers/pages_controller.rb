@@ -3,6 +3,14 @@ class PagesController < ApplicationController
 
   def home
     @foods = Food.order(avg_rating: :desc).limit(4)
+    @restaurants = Restaurant.all
+    @markers = @restaurants.geocoded.map do |restaurant|
+      {
+        lat: restaurant.latitude,
+        lng: restaurant.longitude
+      }
+    end
+
   end
 
   def search
