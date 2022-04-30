@@ -30,7 +30,7 @@ class RestaurantsController < ApplicationController
     @restaurant.user = current_user
     authorize @restaurant
     if @restaurant.save
-      if ( params[:food] = "" )
+      if params[:food] == ""
         redirect_to users_restaurants_path
       else
         @food = Food.find(params[:food])
