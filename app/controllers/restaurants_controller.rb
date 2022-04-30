@@ -30,7 +30,14 @@ class RestaurantsController < ApplicationController
     @restaurant.user = current_user
     authorize @restaurant
     if @restaurant.save
-      redirect_to users_restaurants_path
+      if ( params[:food] = "" )
+        redirect_to users_restaurants_path
+      else
+        @food = Food.find(params[:food])
+        @food_restaurant = FoodRestaurant.new(food_id: params[:food], restaurant_id: @restaurant.id)
+        @food_restaurant.save
+        redirect_to food_path(@food)
+      end
     else
       render :new
     end
@@ -60,6 +67,6 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :cuisine, :location, :description, :address)
+    params.require(:restaurant).permit(:name, :cuisine, :location, :description, :address, :food)
   end
 end

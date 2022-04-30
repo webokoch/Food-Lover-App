@@ -7,6 +7,8 @@ class Restaurant < ApplicationRecord
   has_one_attached :photo
   belongs_to :user
   has_many :foods, through: :food_restaurants
+  has_many :food_restaurants, dependent: :destroy
+
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
