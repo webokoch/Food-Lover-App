@@ -9,8 +9,16 @@
   <div>
   <% if @food.restaurants.present? %>
     <h2 class="mb-5">Best Recommended Places To Eat <%= @food.name %> In Berlin</h2>
+    <h3>Select another great place to eat <%= @food.name %>  
+
+    <%= simple_form_for [@food, @food_restaurant], html: { class: "d-flex justify-content-center align-items-center" } do |f| %>
+      <%= f.input :restaurant_id, collection: Restaurant.all, label: false %>
+      <%= f.submit "Ok", class: "btn btn-primary" %>
+      <% end %>
+
+    or post your favorite Restaurant</h3>
+    <%= link_to "New Restaurant", new_restaurant_path( :food   => @food) %>
       <%= render 'restaurant_cards' %>
   <% end %>
 </div>
 
-<%= link_to "New Restaurant", new_restaurant_path( :food   => @food) %>

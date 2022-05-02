@@ -8,6 +8,7 @@ class FoodsController < ApplicationController
 
   def show
     @food_review = FoodReview.new
+    @food_restaurant = FoodRestaurant.new
   end
 
   def users_foods
