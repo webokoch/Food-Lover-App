@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/search", to: 'pages#search'
   resources :foods do
     resources :food_reviews, only: [ :new, :create ]
-    resources :food_restaurants, only: [ :new, :create ]
+    resources :food_restaurants, only: :create 
     resources :likes, only: :create
   end
   resources :restaurants
