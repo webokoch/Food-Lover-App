@@ -18,7 +18,7 @@ class RestaurantPolicy < ApplicationPolicy
   end
 
   def update?
-    user == record.user   
+    user == record.user
   end
 
   def destroy?
