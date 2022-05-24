@@ -4,10 +4,10 @@
 
 .hero-text {
     padding: 64px;
-}
-
-.hero-img {
-    object-fit: cover;
+    h3 {
+        line-height: 32px;
+        letter-spacing: 4px;
+    }
 }
 
 .hero-text, 
