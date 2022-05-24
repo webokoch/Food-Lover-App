@@ -1,6 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
+<div class="hero d-flex justify-content-between mx-5 p-3">
+  <div class="hero-text">
+    <h1 class="text-left">Food Lovers</h1>
+    <h3>You want to share your favorite food? Or you are looking for a restaurant in Berlin serving your favorite food?
+    Then join Food Lover. It's all about our favorite dishes and where to get them!!! </h3>
+    <%= link_to "Sign In" , new_user_session_path %>
+    <%= link_to "Sign Up" , new_user_registration_path %>
+  </div>
+  <div class="hero-img">
+    <%= image_tag "food-placeholder.jpg" %>
+  </div>
+</div>
+<div style="height: 300px;"></div>
 <div class="food-cards">
   <% @foods.each do |food| %>
     <%= link_to food_path(food), class: "text-decoration-none text-dark" do %>

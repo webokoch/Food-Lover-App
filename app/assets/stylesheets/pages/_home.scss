@@ -1,1 +1,17 @@
-// Specific CSS for your home-page
+.hero {
+    margin-top: 160px;
+}
+
+.hero-text {
+    padding: 64px;
+}
+
+.hero-img {
+    object-fit: cover;
+}
+
+.hero-text, 
+.hero-img {
+    min-height: 40vh;
+    flex-basis: 44%;
+}
