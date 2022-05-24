@@ -1,4 +1,4 @@
-<% @food.restaurants.order(created_at: :desc).each do |restaurant| %>
+<% @food.restaurants.order(created_at: :desc).distinct.each do |restaurant| %>
 <%= link_to restaurant_path(restaurant), class: "text-decoration-none text-dark" do  %>
   <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">

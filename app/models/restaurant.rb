@@ -6,8 +6,8 @@ class Restaurant < ApplicationRecord
   validates :address, presence: true
   has_one_attached :photo
   belongs_to :user
-  has_many :foods, through: :food_restaurants
   has_many :food_restaurants, dependent: :destroy
+  has_many :foods, through: :food_restaurants
 
 
   geocoded_by :address
