@@ -1,4 +1,4 @@
-<div class="card mb-5">
+<div class="card mb-5 border-0 bg-black text-white">
   <% if @food.photo.present? %>
       <%= cl_image_tag @food.photo.key, crop: :fill, class: "card-img-top card-img-height" %>
   <% else %>
@@ -16,7 +16,7 @@
     </div>
     <div class="d-flex float-end">
       <%= render '/shared/star_rating', food: @food%>
-      <%= link_to "Leave a Review", new_food_food_review_path(@food), class: "btn btn-primary ms-3" %>
+      <%= link_to "Leave a Review", new_food_food_review_path(@food), class: "btn button button-lg ms-3" %>
     </div>
   </div>   
 </div>
