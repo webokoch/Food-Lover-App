@@ -1,0 +1,14 @@
+<section id="hero">
+  <div class="hero d-flex justify-content-between p-3">
+    <div class="hero-text">
+      <h1 class="text-left">Food Lover</h1>
+      <h3>Join Food Lover</h3>
+      <h3 class="mb-2"> It's all about Your favorite dishes and where to enjoy them!!!</h3>
+      <%= link_to "Log In", new_user_session_path, class: "btn button mt-2" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn button mt-2 ms-5" %>
+    </div>
+    <div class="hero-img">
+      <%= image_tag "food-placeholder.jpg" %>
+    </div>
+  </div>
+</section>

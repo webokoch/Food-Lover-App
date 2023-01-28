@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'pages#landing'
+  get "/home", to: 'pages#home'
   get "/search", to: 'pages#search'
+
   resources :foods do
     resources :food_reviews, only: [ :new, :create ]
     resources :food_restaurants, only: :create 

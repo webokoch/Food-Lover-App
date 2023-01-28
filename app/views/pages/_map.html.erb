@@ -1,0 +1,13 @@
+<section id="map" class="d-flex align-items-center">
+  <div class="map-text">
+    <h2>Berlin Map</h2>
+    <p>Search our Berlin Map to find Restaurants serving your favorite Food near you!</p>
+    <%= link_to "Learn More", foods_path, class: "btn button mt-2"  %>
+  </div>
+  <div style="width: 50%; height: 600px;"
+    class="map-map map-margin"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</section>
