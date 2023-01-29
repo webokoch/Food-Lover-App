@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#landing'
   get "/home", to: 'pages#home'
   get "/search", to: 'pages#search'
+  get "/map", to: 'pages#map'
 
   resources :foods do
     resources :food_reviews, only: [ :new, :create ]

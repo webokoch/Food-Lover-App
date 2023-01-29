@@ -1,0 +1,8 @@
+<h1 class="ms-5">Berlin Food Map</h1>
+
+<div style="width: 80%; height: 500px;"
+    class="map-map map-margin"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
