@@ -1,12 +1,23 @@
 <section id="new">
-  <h2 class="ps-5">Latest Restaurants</h2>
-  <% @restaurants.order(created_at: :desc).limit(4).each do |restaurant| %>
-
-      <p> <%= restaurant.name %> </p>
-      
-  <% end %>
-      
-
-
+  <h2 class="ps-5 text-white">Latest Restaurants</h2>
+  <div class="food-cards my-5">
+    <% @restaurants.order(created_at: :desc).limit(4).each do |restaurant| %>
+      <%= link_to restaurant_path(restaurant), class: "text-decoration-none text-dark" do %>
+      <div class="card border-0 bg-white text-black">
+        <% if restaurant.photo.present? %>
+            <%= cl_image_tag restaurant.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
+        <% else %>
+          <%= image_tag "restaurant-placeholder.jpg", class: "card-img-top card-img-width" %>
+        <%end%>
+        <div class="card-body">
+          <h5 class="card-title"><%= restaurant.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= restaurant.cuisine %></h6>
+          <p class="card-text"><%= restaurant.description %></p>
+          <p class="card-text"><%= restaurant.location %></p>
+        </div>   
+      </div>
+      <% end %>
+    <% end %>
+  </div>
 
 </section>
