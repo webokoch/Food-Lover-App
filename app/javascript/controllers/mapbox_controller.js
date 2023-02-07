@@ -14,10 +14,10 @@ export default class extends Controller {
         container: this.element,
         style: "mapbox://styles/mapbox/streets-v10",
         center:[
-          13.409419,
+          13.45,
           52.520815
         ],
-        zoom: 12
+        zoom: 11
     })
     this._addMarkersToMap()
   }
