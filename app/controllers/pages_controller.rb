@@ -1,11 +1,14 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :data, only: [:landing, :home]
+  before_action :data, only: [:landing, :home, :map]
 
   def landing
   end
 
   def home
+  end
+
+  def map
   end
 
   def search
