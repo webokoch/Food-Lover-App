@@ -3,12 +3,12 @@
     <div class="col-md-8">
       <%= render 'food_card' %>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" style="overflow-y:auto; height:600px">
       <%= render 'food_reviews' %>
     </div>
   <div>
   <% if @food.restaurants.present? %>
-    <h2 class="mb-5">Best Recommended Places To Eat <%= @food.name %> In Berlin</h2>
+    <h2 class="mb-5">Best Places To Eat <%= @food.name %> In Berlin</h2>
     <h3>Select another great place to eat <%= @food.name %>  
 
     <%= simple_form_for [@food, @food_restaurant], html: { class: "d-flex justify-content-center align-items-center" } do |f| %>
