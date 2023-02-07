@@ -1,6 +1,6 @@
 <section id="new">
   <h2 class="ps-5 text-white">Latest Restaurants</h2>
-  <div class="food-cards my-5">
+  <div class="custom-cards my-5">
     <% @restaurants.order(created_at: :desc).limit(4).each do |restaurant| %>
       <%= link_to restaurant_path(restaurant), class: "text-decoration-none text-dark" do %>
       <div class="card border-0 bg-white text-black">
