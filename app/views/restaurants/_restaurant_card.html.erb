@@ -1,6 +1,6 @@
 <div class="card mb-5">
   <% if @restaurant.photo.present? %>
-      <%= cl_image_tag @food.photo.key, crop: :fill, class: "card-img-top card-img-height" %>
+      <%= cl_image_tag @restaurant.photo.key, crop: :fill, class: "card-img-top card-img-height" %>
   <% else %>
     <%= image_tag "restaurant-placeholder.jpg", class: "card-img-top card-img-height" %>
   <%end%>
