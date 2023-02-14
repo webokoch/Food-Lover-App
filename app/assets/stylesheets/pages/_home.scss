@@ -20,7 +20,7 @@ section {
 .description-box {
     padding: 64px;
     background-color: white;
-    color: black;
+    color: $dark;
     flex-basis: 30%;
     min-height: 40vh;
     border: 1px solid black;
@@ -28,12 +28,12 @@ section {
 
 #new,
 #description {
-    background-color: black;
+    background-color: $dark;
 }
 
 .map-text {
     padding: 64px;
-    color: black;
+    color: $dark;
     
 }
 .map-text,

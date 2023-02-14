@@ -3,7 +3,7 @@
   <div class="custom-cards my-5">
     <% @restaurants.order(created_at: :desc).limit(4).each do |restaurant| %>
       <%= link_to restaurant_path(restaurant), class: "text-decoration-none text-dark" do %>
-      <div class="card border-0 bg-white text-black">
+      <div class="card border-0 bg-white text-black box-shadow">
         <% if restaurant.photo.present? %>
             <%= cl_image_tag restaurant.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
         <% else %>
