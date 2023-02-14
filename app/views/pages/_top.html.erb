@@ -1,6 +1,6 @@
-<section id="top">
-  <h2 class="ps-5">Todays Best Rated Foods</h2>
-  <div class="custom-cards my-5">
+<section id="top" class="container">
+  <h2>Todays Best Rated Foods</h2>
+  <div class="custom-cards">
     <% @foods.each do |food| %>
       <%= link_to food_path(food), class: "text-decoration-none text-dark" do %>
       <div class="card border-0 bg-black text-white box-shadow">
