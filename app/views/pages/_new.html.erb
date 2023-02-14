@@ -1,5 +1,5 @@
 <section id="new">
-  <div class="container">
+  <div class="container-xxl">
     <h2 class="text-white">Latest Restaurants</h2>
     <div class="custom-cards">
       <% @restaurants.order(created_at: :desc).limit(4).each do |restaurant| %>
