@@ -1,7 +1,7 @@
 <div class="custom-cards">
   <% @foods.each do |food| %>
-    <%= link_to food_path(food), class: "text-decoration-none text-dark" do %>
-    <div class="card border-0 bg-black text-white">
+    <%= link_to food_path(food), class: "text-decoration-none text-dark d-grid" do %>
+    <div class="card border-0 bg-black text-white card-dimension">
       <% if food.photo.present? %>
           <%= cl_image_tag food.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
       <% else %>

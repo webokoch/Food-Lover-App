@@ -1,17 +1,19 @@
-<div class="custom-cards mb-5 p-3">
+<div class="custom-cards">
   <% @restaurants.each do |restaurant| %>
-    <%= link_to restaurant_path(restaurant), class: "text-decoration-none text-dark" do %>
-      <% if restaurant.photo.present? %>
-        <%= cl_image_tag restaurant.photo.key, crop: :fill, class: "card-img-top card-img-height" %>
-      <% else %>
-        <%= image_tag "restaurant-placeholder.jpg", class: "card-img-top card-img-height" %>
-      <%end%>
-      <div class="card-body bg-black text-white">
-        <h5 class="card-title"><%= restaurant.name %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= restaurant.cuisine %></h6>
-        <h6 class="card-subtitle mb-2 text-muted"><%= restaurant.location %></h6>
-        <p class="card-text"><%= restaurant.description %></p>
-      </div>   
+    <%= link_to restaurant_path(restaurant), class: "text-decoration-none text-dark d-grid" do %>
+      <div class="card border-0 card-dimension">
+        <% if restaurant.photo.present? %>
+          <%= cl_image_tag restaurant.photo.key, crop: :fill, class: "card-img-top card-img-height" %>
+        <% else %>
+          <%= image_tag "restaurant-placeholder.jpg", class: "card-img-top card-img-height" %>
+        <%end%>
+        <div class="card-body bg-black text-white">
+          <h5 class="card-title"><%= restaurant.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= restaurant.cuisine %></h6>
+          <h6 class="card-subtitle mb-2 text-muted"><%= restaurant.location %></h6>
+          <p class="card-text"><%= restaurant.description %></p>
+        </div> 
+      </div>  
     <% end %>
   <% end %>
 </div>
