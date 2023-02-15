@@ -1,10 +1,10 @@
 <section id="new">
   <div class="container-xxl">
-    <h2 class="text-white">Latest Restaurants</h2>
-    <div class="custom-cards">
+    <h2 class="text-white mb-4">Latest Restaurants</h2>
+    <div class="custom-cards p-0">
       <% @restaurants.order(created_at: :desc).limit(4).each do |restaurant| %>
-        <%= link_to restaurant_path(restaurant), class: "text-decoration-none text-dark" do %>
-        <div class="card border-0 bg-white text-black box-shadow">
+        <%= link_to restaurant_path(restaurant), class: "text-decoration-none text-dark d-grid" do %>
+        <div class="card border-0 bg-white text-black box-shadow card-dimension">
           <% if restaurant.photo.present? %>
               <%= cl_image_tag restaurant.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
           <% else %>

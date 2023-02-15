@@ -1,9 +1,9 @@
 <section id="top" class="container-xxl">
-  <h2>Todays Best Rated Foods</h2>
-  <div class="custom-cards">
+  <h2 class="mb-4">Todays Best Rated Foods</h2>
+  <div class="custom-cards p-0">
     <% @foods.each do |food| %>
-      <%= link_to food_path(food), class: "text-decoration-none text-dark" do %>
-      <div class="card border-0 bg-black text-white box-shadow">
+      <%= link_to food_path(food), class: "text-decoration-none text-dark d-grid" do %>
+      <div class="card border-0 bg-black text-white box-shadow card-dimension">
         <% if food.photo.present? %>
             <%= cl_image_tag food.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
         <% else %>
