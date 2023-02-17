@@ -1,5 +1,4 @@
 .custom-cards {
-  padding: 0 2em;
   display: grid;
   gap: 24px;
 }
@@ -37,11 +36,17 @@
   }
 
   .restaurant-card {
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr 1fr;
+    order: 2;
+  }
+
+  .card-dimension {
+    max-width: 700px;
   }
 
   .content {
     flex-direction: column;
+    
   }
 
   .map-restaurant {
@@ -49,18 +54,18 @@
     order: 0;
     flex-basis: unset !important;
     height: 30vh !important;
-  }
-
-  .restaurant-card {
-    order: 2;
+    margin-bottom: 12px !important;
   }
 }
 
 @media(max-width: 576px) {
   .food-card {
-  justify-items: stretch;
-  grid-template-columns: 1fr;
+    justify-items: stretch;
+    grid-template-columns: 1fr;
   }
 
+  .restaurant-card {
+    grid-template-columns: 1fr;
+  }
 
 }
