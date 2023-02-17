@@ -37,6 +37,12 @@ section {
     color: black;
     
 }
+
+.map-home {
+    width: 45%;
+    height: 600px;
+}
+
 .map-text,
 .map-map {
     flex-basis: 50%;
@@ -67,8 +73,17 @@ section {
     .description-box {
         display: block;
     }
-  }
-  
-  @media(max-width: 576px) {
-    
+
+    .map {
+        flex-direction: column;
+    }
+
+    .map-text {
+        margin-bottom: 100px;
+    }
+
+    .map-home {
+        width: 80%;
+        height: 480px;
+    }
   }

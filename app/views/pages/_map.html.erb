@@ -1,10 +1,10 @@
-<section id="map" class="d-flex align-items-center container-xxl">
+<section id="map" class="d-flex align-items-center container-xxl map">
   <div class="map-text">
     <h2>Berlin Map</h2>
     <p>Search our Berlin Map to find Restaurants serving your favorite Food near you!</p>
     <%= link_to "Learn More", map_path, class: "btn button mt-2"  %>
   </div>
-  <div style="width: 50%; height: 600px;"
+  <div class="map-home"
     class="map-map map-margin"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
