@@ -1,18 +1,24 @@
 <section id="description">
-  <div class=" container-xxl d-flex justify-content-between">
+  <div class="container-xxl d-flex justify-content-between description">
     <div class="description-box">
-      <h3>Favorite Foods</h3>
-      <p>Post your favorite Food or check what other people like</p>
+      <div class="description-content">
+        <h3 class="description-title" >Favorite Foods</h3>
+        <p class="description-text">Post your favorite Food or check what other people like</p>
+      </div>
       <%= link_to "Learn More", foods_path, class: "btn button mt-2"  %>
     </div>
     <div class="description-box">
-      <h3>Restaurants</h3>
-      <p>Find a Restaurant serving your favorite Food</p>
+      <div class="description-content">
+        <h3 class="description-title">Restaurants</h3> 
+        <p class="description-text">Find a Restaurant serving your favorite Food</p>
+      </div>
       <%= link_to "Learn More", restaurants_path, class: "btn button mt-2"  %>
     </div>
     <div class="description-box">
-      <h3>Berlin Map</h3>
-      <p>Check the Berlin Map for Restaurants near you</p>
+      <div class="description-content">
+        <h3 class="description-title">Berlin Map</h3>
+        <p class="description-text">Check the Berlin Map for Restaurants near you</p>
+      </div>
       <%= link_to "Learn More", map_path, class: "btn button mt-2"  %>
     </div>
   </div>
