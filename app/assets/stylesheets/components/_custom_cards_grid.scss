@@ -12,7 +12,8 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.food-card {
+.food-card,
+.card-home {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -25,7 +26,8 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .restaurant-card {
+  .restaurant-card,
+  .card-home {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -59,13 +61,24 @@
 }
 
 @media(max-width: 576px) {
+  .custom-cards {
+    width: 80%;
+    margin: auto;
+
+  }
+
   .food-card {
     justify-items: stretch;
     grid-template-columns: 1fr;
   }
 
-  .restaurant-card {
+  .restaurant-card,
+  .card-home {
     grid-template-columns: 1fr;
+  }
+
+  .card-home {
+    width: 80%;
   }
 
 }
