@@ -1,9 +1,36 @@
-<div class="m-5 d-flex">
+<div class="m-5 d-flex d-flex justify-content-between">
+  
+  
   <%= render 'restaurant_card' %>
-  <div style="width: 400px; height: 400px;"
-    class="map-map map-margin"
+
+
+  <div class="foods">
+    <p>Dishes other Food Lovers recommend at<%= @restaurant.name %> </p>
+    <div class="d-grid foods-grid">
+        <% @restaurant.foods.uniq.each do |food| %>
+        <%= link_to food_path(food), class: "text-decoration-none text-dark" do %>
+          <div class="card border-0 bg-black text-white food-image">
+            <% if food.photo.present? %>
+                <%= cl_image_tag food.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
+            <% else %>
+              <%= image_tag "food-placeholder.jpg", class: "card-img-top card-img-width" %>
+            <%end%>
+            <div class="card-body centered">
+              <h3 class="card-title food-name"><%= food.name %></h3>
+            </div>   
+          </div>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+  <div class="map-margin map-restaurant"
     data-controller="mapbox"
     data-mapbox-markers-value="<%= @markers.to_json %>"
     data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+  </div>
+
+
 </div>

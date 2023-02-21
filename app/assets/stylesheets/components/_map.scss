@@ -15,8 +15,39 @@
   background-color: $light;
 }
 
-.map-restaurant {
+.map-restaurants {
   height: 100vh;
   position: sticky;
   top: 81px;
+}
+
+.map-restaurant, 
+.foods {
+  flex-basis: 30%;
+}
+
+
+.foods-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+
+.food-image {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.food-name {
+  text-shadow: 4px 4px 12px #000000;
+  font-weight: 600;
 }
