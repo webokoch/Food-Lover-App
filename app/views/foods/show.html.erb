@@ -1,32 +1,56 @@
-<div class="m-5">
-  <div class="row">
-    <div class="col-md-8">
+<div class="container-xxl">
+  <h1 class="my-4"> <%= @food.name %> </h1>
+
+  <div class="d-flex justify-content-between">
+
+    <div class="foods">
       <%= render 'food_card' %>
     </div>
-    <div class="col-md-4" style="overflow-y:auto; height:600px">
+
+    <div class="foods" style="overflow-y:auto; height:600px">
+      <% if @food.restaurants.present? %>
+        <p>Best Places To Eat <%= @food.name %> In Berlin</p>
+        <p>Select another great place to eat <%= @food.name %>  
+
+        <%= simple_form_for [@food, @food_restaurant], html: { class: "d-flex justify-content-center align-items-center" } do |f| %>
+          <%= f.input :restaurant_id, collection: Restaurant.all, label: false %>
+          <%= f.submit "Ok", class: "btn btn-primary" %>
+          <% end %>
+
+        or post your favorite Restaurant
+            <%= link_to "Restaurant", new_restaurant_path, class: "text-decoration-none text-dark btn button" %>
+          </p>
+        <div class="d-grid foods-grid">
+          <% @food.restaurants.uniq.each do |restaurant| %>
+          <%= link_to restaurant_path(restaurant), class: "text-decoration-none text-dark" do %>
+            <div class="card border-0 bg-black text-white food-image">
+              <% if restaurant.photo.present? %>
+                  <%= cl_image_tag restaurant.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
+              <% else %>
+                <%= image_tag "restaurant-placeholder.jpg", class: "card-img-top card-img-width" %>
+              <%end%>
+              <div class="card-body centered">
+                <h3 class="card-title food-name"><%= restaurant.name %></h3>
+              </div>   
+            </div>
+            <% end %>
+        <% end %>
+      </div>
+
+      <% else %>
+        <h3>Select a great place to eat <%= @food.name %>
+        <%= simple_form_for [@food, @food_restaurant], html: { class: "d-flex justify-content-center align-items-center" } do |f| %>
+          <%= f.input :restaurant_id, collection: Restaurant.all, label: false %>
+          <%= f.submit "Ok", class: "btn btn-primary" %>
+          <% end %>
+
+      <% end %>
+    </div>
+
+
+    <div class="foods" style="overflow-y:auto; height:600px">
       <%= render 'food_reviews' %>
     </div>
-  <div>
-  <% if @food.restaurants.present? %>
-    <h2 class="mb-5">Best Places To Eat <%= @food.name %> In Berlin</h2>
-    <h3>Select another great place to eat <%= @food.name %>  
-
-    <%= simple_form_for [@food, @food_restaurant], html: { class: "d-flex justify-content-center align-items-center" } do |f| %>
-      <%= f.input :restaurant_id, collection: Restaurant.all, label: false %>
-      <%= f.submit "Ok", class: "btn btn-primary" %>
-      <% end %>
-
-    or post your favorite Restaurant</h3>
-    <%= link_to "New Restaurant", new_restaurant_path( :food   => @food) %>
-      <%= render 'restaurant_cards' %>
-
-  <% else %>
-    <h3>Select a great place to eat <%= @food.name %>
-     <%= simple_form_for [@food, @food_restaurant], html: { class: "d-flex justify-content-center align-items-center" } do |f| %>
-      <%= f.input :restaurant_id, collection: Restaurant.all, label: false %>
-      <%= f.submit "Ok", class: "btn btn-primary" %>
-      <% end %>
-
-  <% end %>
+  </div>
 </div>
 
