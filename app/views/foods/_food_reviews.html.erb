@@ -1,10 +1,19 @@
 <ul class="list-group">
-  <% @food.food_reviews.order('created_at desc').each do |food_review| %>
-    <li class="list-group-item mb-3" id="food-review-<%= food_review.id %>">
-      <% food_review.rating.times do %>
-      ⭐️
-      <% end %> 
-      <%= food_review.content %>
+  <% if @food.food_reviews.present? %>
+    <% @food.food_reviews.order('created_at desc').each do |food_review| %>
+      <li class="list-group-item" id="food-review-<%= food_review.id %>">
+        <% food_review.rating.times do %>
+        ⭐️
+        <% end %> 
+        <%= food_review.content %>
+      </li>
+    <% end %>
+  <% else %>
+    <li class="list-group-item">
+      Be the first to leave a review!
+    </li>
+    <li class="list-group-item">
+      <%= link_to "Leave a Review", new_food_food_review_path(@food), class: "btn button button-full" %>
     </li>
   <% end %>
 </ul>
