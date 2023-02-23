@@ -1,18 +1,15 @@
 <div class="container-xxl">
   <h1 class="my-4"> <%= @restaurant.name %> </h1>
   <div class="d-flex d-flex justify-content-between">
-    
     <%= render 'restaurant_card' %>
-
     <div class="foods overflow">
       <%= render 'restaurant_foods' %>
     </div>
-
-    <div class="map-margin map-restaurant"
+    <div 
+      class="map-margin map-restaurant"
       data-controller="mapbox"
       data-mapbox-markers-value="<%= @markers.to_json %>"
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    
   </div>
 </div>
