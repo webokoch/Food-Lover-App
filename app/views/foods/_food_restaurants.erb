@@ -3,12 +3,12 @@
   <p>Select another great place to eat <%= @food.name %>  
 
   <%= simple_form_for [@food, @food_restaurant], html: { class: "d-flex justify-content-center align-items-center" } do |f| %>
-    <%= f.input :restaurant_id, collection: Restaurant.all, label: false %>
-    <%= f.submit "Ok", class: "btn btn-primary" %>
+    <%= f.input :restaurant_id, collection: Restaurant.all, label: false, class: "button-lg" %>
+    <%= f.submit "Ok", class: "btn button button-lg" %>
     <% end %>
 
   or post your favorite Restaurant
-    <%= link_to "Restaurant", new_restaurant_path, class: "text-decoration-none text-dark btn button" %>
+    <%= link_to "Add a new Restaurant", new_restaurant_path, class: "btn button button-full" %>
     </p>
   <div class="d-grid foods-grid">
     <% @food.restaurants.uniq.each do |restaurant| %>
