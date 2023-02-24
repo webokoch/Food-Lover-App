@@ -5,11 +5,15 @@
     <div class="foods overflow">
       <%= render 'restaurant_foods' %>
     </div>
-    <div 
-      class="map-margin map-restaurant"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="foods overflow">
+      <div 
+        class="map-margin map-restaurant"
+        style="height: 180px;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      <%= render 'restaurant_reviews' %>
     </div>
   </div>
 </div>
