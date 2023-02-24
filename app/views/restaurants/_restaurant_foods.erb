@@ -1,5 +1,4 @@
-<p>Dishes other Food Lovers recommend at</p>
-<h4 class="text-center"> <%= @restaurant.name %> </h4>
+<p>Dishes other Food Lovers recommend</p>
 <div class="d-grid foods-grid">
   <% @restaurant.foods.uniq.each do |food| %>
     <%= link_to food_path(food), class: "text-decoration-none text-dark" do %>
