@@ -23,7 +23,7 @@ class RestaurantReviewsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
-  def restaurent_review_params
+  def restaurant_review_params
     params.require(:restaurant_review).permit(:rating, :content)
   end
 end
