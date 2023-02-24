@@ -17,7 +17,7 @@ export default class extends Controller {
           13.45,
           52.520815
         ],
-        zoom: 11
+        zoom: 9.5
     })
     this._addMarkersToMap()
     this.map.addControl(
