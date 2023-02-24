@@ -1,0 +1,12 @@
+<div class="container-xl">
+  <h1 class="mt-3 ps-3">Leave a Review for <%= @restaurant.name %> </h1>
+  <div class="container-form">
+  <%= simple_form_for [ @restaurant, @restaurant_review ]  do |f| %>
+    <%= f.input :rating, collection: 1..5 %>
+    <%= f.input :content %>
+    <div class="d-grid gap-2 mt-5">
+    <%= f.submit "Leave a Review!", class: "btn button button-full" %>
+    </div>
+  <% end %>
+  </div>
+</div>
