@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
   resources :restaurants do
     resources :restaurant_reviews, only: [ :new, :create ]
+    resources :food_restaurants, only: :create 
   end
   
   get "/users_foods", to: 'foods#users_foods'
