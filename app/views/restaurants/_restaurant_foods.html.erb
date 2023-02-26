@@ -15,3 +15,9 @@
     <% end %>
   <% end %>
 </div>
+
+
+<%= simple_form_for [@restaurant, @food_restaurant] do |f| %>
+    <%= f.input :food_id, collection: Food.all, label: false %>
+    <%= f.submit "Ok", class: "btn button button-full" %>
+    <% end %>
