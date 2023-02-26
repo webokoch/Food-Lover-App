@@ -20,6 +20,7 @@ class RestaurantsController < ApplicationController
         lng: @restaurant.longitude,
         info_window: render_to_string(partial: "info_window", locals: { restaurant: @restaurant })
       }]
+      @food_restaurant = FoodRestaurant.new
   end
 
   def users_restaurants
