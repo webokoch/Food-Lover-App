@@ -1,12 +1,12 @@
 <p class="float-end">
-  <% if food.avg_rating > 0.0 %>
+  <% if element.avg_rating > 0.0 %>
     <div class="average-score my-auto">
       <div class="star-rating ml-2">
-        <div class="star-rating-front" style="width: <%= food.avg_rating_percentage %>%">★★★★★</div>
+        <div class="star-rating-front" style="width: <%= element.avg_rating_percentage %>%">★★★★★</div>
         <div class="star-rating-back">★★★★★</div>
       </div>
       <div class="ms-3">
-        <%= food.avg_rating %>
+        <%= element.avg_rating %>
       </div>
     </div>
   <% else %>

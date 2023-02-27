@@ -15,7 +15,7 @@
       <p><%= pluralize(@food.likes.count, 'Like')%></p>
     </div>
     <div class="d-flex float-end">
-      <%= render '/shared/star_rating', food: @food%>
+      <%= render '/shared/star_rating', element: @food%>
       <%= link_to "Leave a Review", new_food_food_review_path(@food), class: "btn button button-lg ms-3" %>
     </div>
   </div>   

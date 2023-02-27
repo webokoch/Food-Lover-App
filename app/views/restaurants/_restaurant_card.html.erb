@@ -12,5 +12,6 @@
     <h6 class="card-subtitle mb-2 text-muted"><%= @restaurant.location %></h6>
     <h6 class="card-subtitle mb-2 text-muted"><%= @restaurant.address%></h6>
     <p class="card-text"><%= @restaurant.description %></p>
+    <%= render '/shared/star_rating', element: @restaurant %>
   </div>   
 </div>

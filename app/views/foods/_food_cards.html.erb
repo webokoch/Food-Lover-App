@@ -11,7 +11,7 @@
         <h5 class="card-title"><%= food.name %></h5>
         <h6 class="card-subtitle mb-2 text-muted"><%= food.cuisine %></h6>
         <p class="card-text"><%= food.description.truncate_words(6) %></p>
-        <%= render '/shared/star_rating', food: food %>
+        <%= render '/shared/star_rating', element: food %>
       </div>   
     </div>
     <% end %>
