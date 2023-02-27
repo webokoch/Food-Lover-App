@@ -1,38 +1,11 @@
-
-<div class="custom-cards">
-  <% @results.each do |result| %>   
-    <% if result.searchable_type == "Food" %>
-      <%= link_to food_path(result.searchable), class: "text-decoration-none text-dark" do %>
-      <div class="card">
-        <% if result.searchable.photo.present? %>
-            <%= cl_image_tag result.searchable.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
-        <% else %>
-          <%= image_tag "food-placeholder.jpg", class: "card-img-top card-img-width" %>
-        <%end%>
-        <div class="card-body">
-          <h5 class="card-title"><%= result.searchable.name %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= result.searchable.cuisine %></h6>
-          <p class="card-text"><%= result.searchable.description %></p>
-          <%= render '/shared/star_rating', food: result.searchable %>
-        </div>   
-      </div>
+<div class="container-xxl">
+  <div class="custom-cards food-card m-4">
+    <% @results.each do |result| %>   
+      <% if result.searchable_type == "Food" %>
+        <%= render 'search_food_card', food: result.searchable %>
+      <% else %>
+        <%= render 'search_restaurant_card', restaurant: result.searchable %>
       <% end %>
-    <% else %>
-      <%= link_to restaurant_path(result.searchable), class: "text-decoration-none text-dark" do %>
-      <div class="card">
-        <% if result.searchable.photo.present? %>
-            <%= cl_image_tag result.searchable.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
-        <% else %>
-          <%= image_tag "restaurant-placeholder.jpg", class: "card-img-top card-img-width" %>
-        <%end%>
-        <div class="card-body">
-          <h5 class="card-title"><%= result.searchable.name %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= result.searchable.cuisine %></h6>
-          <h6 class="card-subtitle mb-2 text-muted"><%= result.searchable.location %></h6>
-          <p class="card-text"><%= result.searchable.description %></p>
-        </div>   
-      </div>
-      <% end %>
-    <% end %>
-  <% end %>    
+    <% end %>    
+  </div>
 </div>

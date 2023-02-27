@@ -1,0 +1,15 @@
+<%= link_to food_path(food), class: "text-decoration-none text-dark d-grid" do %>
+<div class="card border-0 bg-black text-white card-dimension">
+  <% if food.photo.present? %>
+    <%= cl_image_tag food.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
+    <% else %>
+    <%= image_tag "food-placeholder.jpg", class: "card-img-top card-img-width" %>
+  <%end%>
+  <div class="card-body">
+    <h5 class="card-title"><%= food.name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= food.cuisine %></h6>
+    <p class="card-text"><%= food.description %></p>
+    <%= render '/shared/star_rating', element: food %>
+  </div>   
+</div>
+<% end %>
