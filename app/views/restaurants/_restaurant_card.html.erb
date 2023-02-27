@@ -1,4 +1,4 @@
-<div class="card mb-5 d-flex foods">
+<div class="card mb-5 d-flex foods bg-black text-white">
   <div class="card-image">
     <% if @restaurant.photo.present? %>
         <%= cl_image_tag @restaurant.photo.key, crop: :fill, class: "card-img-top card-img-height" %>
