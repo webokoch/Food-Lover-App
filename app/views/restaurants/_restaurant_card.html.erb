@@ -12,9 +12,9 @@
     <h6 class="card-subtitle mb-2 text-muted"><%= @restaurant.location %></h6>
     <h6 class="card-subtitle mb-2 text-muted"><%= @restaurant.address%></h6>
     <p class="card-text"><%= @restaurant.description %></p>
-    <div class="d-flex float-end">
-      <%= render '/shared/star_rating', element: @restaurant%>
+    <div class="d-flex justify-content-between">
       <%= link_to "Leave a Review", new_restaurant_restaurant_review_path(@restaurant), class: "btn button button-lg ms-3" %>
+      <%= render '/shared/star_rating', element: @restaurant%>
     </div>
   </div>   
 </div>
