@@ -10,7 +10,7 @@ class Food < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   include PgSearch::Model
-  multisearchable against: [:name, :cuisine]
+  multisearchable against: [:name, :cuisine, :description]
 
   def average_rating
     if food_reviews.exists?
@@ -21,7 +21,7 @@ class Food < ApplicationRecord
     end
   end
 
-  def avg_rating_percentage 
+  def avg_rating_percentage
     avg_rating.round(1).to_f*100/5
   end
 end
