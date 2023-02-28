@@ -1,13 +1,13 @@
 <div class="container-xxl">
   <h1 class="my-4"> <%= @food.name %> </h1>
-  <div class="d-flex justify-content-between">
-    <div class="foods">
+  <div class="show-layout">
+    <div class="size">
       <%= render 'food_card' %>
     </div>
-    <div class="foods overflow">
+    <div class="size overflow last">
        <%= render 'food_restaurants' %>
     </div>
-    <div class="foods overflow">
+    <div class="size overflow">
       <%= render 'food_reviews' %>
     </div>
   </div>

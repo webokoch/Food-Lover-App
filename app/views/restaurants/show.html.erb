@@ -1,11 +1,13 @@
 <div class="container-xxl">
   <h1 class="my-4"> <%= @restaurant.name %> </h1>
-  <div class="d-flex d-flex justify-content-between">
-    <%= render 'restaurant_card' %>
-    <div class="foods overflow">
+  <div class="show-layout">
+    <div class="size">
+      <%= render 'restaurant_card' %>
+    </div>
+    <div class="size overflow last">
       <%= render 'restaurant_foods' %>
     </div>
-    <div class="foods overflow">
+    <div class="size overflow">
       <div 
         class="map-margin map-restaurant"
         style="height: 180px;"
