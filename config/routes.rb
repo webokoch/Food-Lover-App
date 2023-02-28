@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get "/home", to: 'pages#home'
   get "/search", to: 'pages#search'
   get "/map", to: 'pages#map'
-
+  get "/food_info", to: 'pages#food_info'
+  get "/restaurant_info", to: 'pages#restaurant_info'
+  get "/map_info", to: 'pages#map_info'
+  
   resources :foods do
     resources :food_reviews, only: [ :new, :create ]
     resources :food_restaurants, only: :create 
