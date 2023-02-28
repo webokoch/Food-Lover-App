@@ -11,6 +11,15 @@ class PagesController < ApplicationController
   def map
   end
 
+  def food_info
+  end
+
+  def restaurant_info
+  end
+
+  def map_info
+  end
+
   def search
     @results = PgSearch.multisearch(query_params[:query])
   end
