@@ -1,12 +1,19 @@
 <div class="container-xxl">
   <h1 class="my-4">Your Search Results</h1>
-  <div class="custom-cards food-card m-4">
-    <% @results.each do |result| %>   
-      <% if result.class.name == "Food" %>
+  <% if @food_results %>
+    <h2>Foods</h2>
+    <div class="custom-cards food-card m-4">
+      <% @food_results.each do |result| %>   
         <%= render 'search_food_card', food: result %>
-      <% else %>
-        <%= render 'search_restaurant_card', restaurant: result %>
       <% end %>
-    <% end %>    
-  </div>
+    </div>
+  <% end %>
+  <% if @restaurant_results %>
+    <h2>Restaurants</h2>
+    <div class="custom-cards food-card m-4">
+      <% @restaurant_results.each do |result| %>   
+        <%= render 'search_restaurant_card', restaurant: result %>
+      <% end %>  
+    </div>
+  <% end %> 
 </div>
