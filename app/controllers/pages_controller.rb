@@ -23,6 +23,8 @@ class PagesController < ApplicationController
   def search
     @raw_results = PgSearch.multisearch(query_params[:query])
     @results = get_uniq_results(@raw_results)
+    @food_results = food_results(@results)
+    @restaurant_results = restaurant_results(@results)
   end
 
   private
@@ -55,5 +57,21 @@ class PagesController < ApplicationController
       end
     end
     uniq_results = uniq_results.uniq.sort_by {|r| r.class.name}
+  end
+
+  def food_results(results)
+    food_results = []
+    results.each do |r|
+      r.instance_of?(Food) && food_results.push(r)
+    end
+    food_results
+  end
+
+  def restaurant_results(results)
+    restaurant_results = []
+    results.each do |r|
+      r.instance_of?(Restaurant) && restaurant_results.push(r)
+    end
+    restaurant_results
   end
 end
