@@ -1,10 +1,10 @@
 <div class="container-xxl">
   <div class="custom-cards food-card m-4">
-    <% @results.each do |result| %>   
-      <% if result.searchable_type == "Food" %>
-        <%= render 'search_food_card', food: result.searchable %>
+    <% @uniq_results.each do |result| %>   
+      <% if result.class.name == "Food" %>
+        <%= render 'search_food_card', food: result %>
       <% else %>
-        <%= render 'search_restaurant_card', restaurant: result.searchable %>
+        <%= render 'search_restaurant_card', restaurant: result %>
       <% end %>
     <% end %>    
   </div>

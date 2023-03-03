@@ -22,13 +22,24 @@ class PagesController < ApplicationController
 
   def search
     @results = PgSearch.multisearch(query_params[:query])
+    @uniq_results = []
+    @results.each do |result|
+      @uniq_results.push(result.searchable)
+      if result.searchable_type == "Food" && result.searchable.restaurants 
+        result.searchable.restaurants.each do |restaurant|
+        @uniq_results.push(restaurant)
+        end
+      end
+    end
+    @uniq_results = @uniq_results.uniq
   end
 
   private
 
   def query_params
-    params.require(:query).permit(:query) if params[:query].present?
+    params.require(:query).permit(:query) 
   end
+
 
   def data
     @foods = Food.order(avg_rating: :desc).limit(4)
@@ -41,5 +52,4 @@ class PagesController < ApplicationController
       }
     end 
   end
-
 end
