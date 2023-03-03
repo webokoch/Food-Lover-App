@@ -21,17 +21,8 @@ class PagesController < ApplicationController
   end
 
   def search
-    @results = PgSearch.multisearch(query_params[:query])
-    @uniq_results = []
-    @results.each do |result|
-      @uniq_results.push(result.searchable)
-      if result.searchable_type == "Food" && result.searchable.restaurants 
-        result.searchable.restaurants.each do |restaurant|
-        @uniq_results.push(restaurant)
-        end
-      end
-    end
-    @uniq_results = @uniq_results.uniq
+    @raw_results = PgSearch.multisearch(query_params[:query])
+    @results = get_uniq_results(@raw_results)
   end
 
   private
@@ -51,5 +42,18 @@ class PagesController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
       }
     end 
+  end
+
+  def get_uniq_results(results)
+    uniq_results = []
+    results.each do |result|
+      uniq_results.push(result.searchable)
+      if result.searchable_type == "Food" && result.searchable.restaurants 
+        result.searchable.restaurants.each do |restaurant|
+          uniq_results.push(restaurant)
+        end
+      end
+    end
+    uniq_results = uniq_results.uniq.sort_by {|r| r.class.name}
   end
 end
