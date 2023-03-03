@@ -1,23 +1,32 @@
-<p class="text-center">Dishes other Food Lovers recommend</p>
-<div class="d-grid foods-grid">
-  <% @restaurant.foods.uniq.each do |food| %>
-    <%= link_to food_path(food), class: "text-decoration-none text-dark" do %>
-      <div class="card border-0 bg-black text-white food-image">
-      <% if food.photo.present? %>
-          <%= cl_image_tag food.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
-      <% else %>
-        <%= image_tag "food-placeholder.jpg", class: "card-img-top card-img-width" %>
-      <%end%>
-        <div class="card-body centered">
-          <h3 class="card-title food-name"><%= food.name %></h3>
-        </div>   
-      </div>
+<% if @restaurant.foods.present? %>
+  <p class="text-center">Dishes other Food Lovers recommend</p>
+  <div class="d-grid foods-grid">
+    <% @restaurant.foods.uniq.each do |food| %>
+      <%= link_to food_path(food), class: "text-decoration-none text-dark" do %>
+        <div class="card border-0 bg-black text-white food-image">
+        <% if food.photo.present? %>
+            <%= cl_image_tag food.photo.key, crop: :fill, class: "card-img-top card-img-width" %>
+        <% else %>
+          <%= image_tag "food-placeholder.jpg", class: "card-img-top card-img-width" %>
+        <%end%>
+          <div class="card-body centered">
+            <h3 class="card-title food-name"><%= food.name %></h3>
+          </div>   
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
-
-
-<%= simple_form_for [@restaurant, @food_restaurant] do |f| %>
+  </div>
+  <p class="text-center"> Select another Dish </p>
+  <%= simple_form_for [@restaurant, @food_restaurant] do |f| %>
     <%= f.input :food_id, collection: Food.all, label: false %>
     <%= f.submit "Ok", class: "btn button button-full" %>
     <% end %>
+<% else %>
+  <p>Select a great dish to eat at <%= @restuarant.name %></p>
+  <%= simple_form_for [@restaurant, @food_restaurant] do |f| %>
+    <%= f.input :food_id, collection: Food.all, label: false %>
+    <%= f.submit "Ok", class: "btn button button-full" %>
+    <% end %>
+<% end %>
+<p class="text-center"> or </p>
+<%= link_to "Add your Favorite Dish", new_food_path, class: "btn button button-full mb-2" %> 
