@@ -1,4 +1,4 @@
-json.extract! @food, :id, :name, :cuisine, :description
+json.extract! @food, :id, :name, :cuisine, :description, :user
 json.reviews @food.food_reviews do |review|
   json.extract! review, :id, :rating, :content, :user
 end
