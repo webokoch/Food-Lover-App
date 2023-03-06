@@ -20,6 +20,9 @@ class PagesController < ApplicationController
   def map_info
   end
 
+  def api 
+  end
+  
   def search
     @raw_results = PgSearch.multisearch(query_params[:query])
     @results = get_uniq_results(@raw_results)
