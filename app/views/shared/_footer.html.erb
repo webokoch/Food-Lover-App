@@ -1,9 +1,7 @@
-<div class="footer">
-    
-    <%= link_to ("https://github.com/webokoch/Food-Lover-App"), target: "_blank" do %>
-      <i class="fab fa-github git-hub"></i>
-    <% end %>
-    
-    <h3>Food Lover App</h3>
-    <h3>About</h3>
+<div class="footer">  
+  <%= link_to ("https://github.com/webokoch/Food-Lover-App"), target: "_blank" do %>
+    <i class="fab fa-github footer-item"></i>
+  <% end %>
+  <%= link_to "Food Lover", home_path , class:"footer-item"  %>
+  <%= link_to "API",  api_path , class:"footer-item"%>
 </div>
