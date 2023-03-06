@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/food_info", to: 'pages#food_info'
   get "/restaurant_info", to: 'pages#restaurant_info'
   get "/map_info", to: 'pages#map_info'
+  get "/api", to: 'pages#api'
   
   resources :foods do
     resources :food_reviews, only: [ :new, :create ]
