@@ -1,3 +1,34 @@
-<div class="container-xxl">
-    <h1 class="my-4">About Food Lover</h1>
+<div class="container-xxl full-height">
+  <h1 class="my-4 text-center">About Food Lover</h1>
+  <div class="w-50 m-auto d-flex flex-column align-items-center mb-5">
+    <p class="info-text">
+      I created and programmed Food Lover to showcase my Front- and Backend Web Developing Skills.
+      It combines a lot of topics and skills I've learned so far. It's a Ruby on Rails responsive Web App with a PostgresQL 
+      Database, hosted on Heroku. I used Bootstrap as well custom CSS.
+    </p>
+    <h3 class="my-4">I used following gems and add-ons:</h3>
+    <ul class="about-list info-text">
+      <li class="about-list-item"> 
+        <%= link_to "Devise", "https://github.com/heartcombo/devise", target: "_blank", class:"about-list-link"%> for authentication
+      </li>
+      <li class="about-list-item"> 
+        <%= link_to "Pundit", "https://github.com/varvet/pundit", target: "_blank", class:"about-list-link"%> for authorization
+      </li>
+      <li class="about-list-item"> 
+        <%= link_to "Geocoder", "https://github.com/alexreisner/geocoder", target: "_blank", class:"about-list-link"%> for geocoding
+      </li>
+      <li class="about-list-item"> 
+        <%= link_to "Mapbox", "https://www.mapbox.com", target: "_blank", class:"about-list-link"%> to display a map
+      </li>
+      <li class="about-list-item"> 
+        <%= link_to "pg_search", "https://github.com/Casecommons/pg_search", target: "_blank", class:"about-list-link"%> to search within the app
+      </li>
+      <li class="about-list-item"> 
+        <%= link_to "Cloudinary", "https://cloudinary.com", target: "_blank", class:"about-list-link"%> for image uploading & hosting
+      </li>
+      <li class="about-list-item"> 
+        <%= link_to "Heroku", "https://www.heroku.com", target: "_blank", class:"about-list-link"%> for web hosting
+      </li>
+    </ul>
+  </div>
 </div>
