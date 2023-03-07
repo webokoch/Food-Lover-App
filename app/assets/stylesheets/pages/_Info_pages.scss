@@ -1,0 +1,37 @@
+.info-text {
+  font-size: 24px;
+  text-align: justify;
+}
+
+.about-list {
+  list-style-type: none;
+}
+
+.about-list-item {
+  margin-bottom: 20px;
+  
+}
+
+.about-list-link {
+  text-decoration: none;
+  color: gray;
+  font-size: 28px;
+}
+
+.about-list-link:hover {
+  color: black;
+}
+
+#api-documentation > p,
+#api-documentation > h4,
+#api-documentation > code {
+ margin-bottom: 24px;
+}
+
+.api-code {
+  font-size: 24px;
+}
+
+.api-id {
+  color:gray;
+}
