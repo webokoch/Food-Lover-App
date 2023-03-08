@@ -1,5 +1,5 @@
-<div class="container-xxl">
-  <h1 class="mt-3 ps-3">Leave a Review for <%= @restaurant.name %> </h1>
+<div class="container-xxl full-height">
+  <h1 class="my-4">Leave a Review for <%= @restaurant.name %> </h1>
   <div class="container-form">
   <%= simple_form_for [ @restaurant, @restaurant_review ]  do |f| %>
     <%= f.input :rating, collection: 1..5 %>

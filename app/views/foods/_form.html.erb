@@ -1,12 +1,10 @@
-<div class="container-form">
-  <%= simple_form_for food do |f| %>
-    <%= f.input :name %>
-    <%= f.input :cuisine %>
-    <%= f.input :description %>
-    <%= f.input :photo, as: :file, input_html: { class: "d-none", id: "photo-input" }, label_html: { class: "upload-photo"}, label: "📷 Upload a photo" %>
-    <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
-    <div class="d-grid gap-2 mt-4">
-      <%= f.submit class: "btn button button-full" %>
-    </div>
-  <% end %> 
-</div>
+<%= simple_form_for food do |f| %>
+  <%= f.input :name %>
+  <%= f.input :cuisine %>
+  <%= f.input :description %>
+  <%= f.input :photo, as: :file, input_html: { class: "d-none", id: "photo-input" }, label_html: { class: "upload-photo"}, label: "📷 Upload a photo" %>
+  <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+  <div class="d-grid gap-2 mt-4">
+    <%= f.submit class: "btn button button-full" %>
+  </div>
+<% end %> 
