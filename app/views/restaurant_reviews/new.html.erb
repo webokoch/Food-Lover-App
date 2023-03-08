@@ -1,12 +1,14 @@
-<div class="container-xxl full-height">
-  <h1 class="my-4">Leave a Review for <%= @restaurant.name %> </h1>
-  <div class="container-form">
-  <%= simple_form_for [ @restaurant, @restaurant_review ]  do |f| %>
-    <%= f.input :rating, collection: 1..5 %>
-    <%= f.input :content %>
-    <div class="d-grid gap-2 mt-5">
-    <%= f.submit "Leave a Review!", class: "btn button button-full" %>
+<div class="container-xxl full-height d-flex justify-content-center align-items-center">
+  <div>
+    <h1 class="mb-4 text-center">Leave a Review for <%= @restaurant.name %> </h1>
+    <div class="container-form">
+    <%= simple_form_for [ @restaurant, @restaurant_review ]  do |f| %>
+      <%= f.input :rating, collection: 1..5 %>
+      <%= f.input :content %>
+      <div class="d-grid gap-2 mt-5">
+      <%= f.submit "Leave a Review!", class: "btn button button-full" %>
+      </div>
+    <% end %>
     </div>
-  <% end %>
   </div>
 </div>
