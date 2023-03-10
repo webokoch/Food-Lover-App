@@ -15,9 +15,10 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@webpack-cli/serve": "^2.0.1",
     "webpack-dev-server": "^4.7.4"
   },
   "engines": {
-    "node": "16.18.1"
+    "node": "14.15.0"
   }
 }
