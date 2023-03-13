@@ -22,7 +22,7 @@
     <%= f.submit "Ok", class: "btn button button-full" %>
     <% end %>
 <% else %>
-  <p>Select a great dish to eat at <%= @restuarant.name %></p>
+  <p>Select a great dish to eat at <%= @restaurant.name %></p>
   <%= simple_form_for [@restaurant, @food_restaurant] do |f| %>
     <%= f.input :food_id, collection: Food.all, label: false %>
     <%= f.submit "Ok", class: "btn button button-full" %>
