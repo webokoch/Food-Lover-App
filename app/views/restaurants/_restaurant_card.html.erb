@@ -1,8 +1,10 @@
 <div class="card mb-5 d-flex foods bg-black text-white">
   <div class="card-image">
-
+    <% if @restaurant.photo.present? %>
+        <%= cl_image_tag @restaurant.photo.key, crop: :fill, class: "card-img-top card-img-height" %>
+    <% else %>
       <%= image_tag "restaurant-placeholder.jpg", class: "card-img-top card-img-height" %>
- 
+    <%end%>
   </div>
   <div class="card-body">
     <h5 class="card-title"><%= @restaurant.name %></h5>
