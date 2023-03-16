@@ -4,11 +4,15 @@ section {
 }
 
 .hero-text {
-    padding: 64px;
+    padding: 32px 0;
     h3 {
-        line-height: 32px;
-        letter-spacing: 4px;
+        line-height: 16px;
+        letter-spacing: 2px;
     }
+}
+
+.hero-text {
+    color:blue;
 }
 
 .hero-text, 
