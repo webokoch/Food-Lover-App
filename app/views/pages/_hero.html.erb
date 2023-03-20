@@ -1,13 +1,14 @@
 <section id="hero">
   <div class="hero d-flex justify-content-between container-xxl">
-    <div class="hero-text">
+    <div class="hero-text" style="padding: 32px 0; color:black;">
       <h1 class="text-left">Food Lover</h1>
       <h3>Join Food Lover</h3>
-      <h3 class="mb-2"> It's all about Your favorite dishes and where to enjoy them!!!</h3>
+      <h3 class="mb-2" style="line-height:1.25; letter-spacing:1.25px;"> It's all about Your favorite dishes and where to enjoy them!!!</h3>
       <%= link_to "Log In", new_user_session_path, class: "btn button mt-2" %>
       <%= link_to "Sign Up", new_user_registration_path, class: "btn button mt-2 ms-5" %>
     </div>
-    <div class="hero-img">
+    <div style="min-height:40vh; flex-basis:44%;">
+      <%= image_tag "hero.jpg"%>
     </div>
   </div>
 </section>
