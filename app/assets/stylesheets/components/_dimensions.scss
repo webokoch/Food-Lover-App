@@ -6,3 +6,9 @@
 .full-height {
   min-height: calc(100vh - 130px);
 }
+
+@media(max-width: 576px) {
+  .form-small {
+    margin-left: 12px;
+  }
+}
