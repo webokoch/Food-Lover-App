@@ -1,3 +1,7 @@
+.info-width {
+  width: 50%;
+}
+
 .info-text {
   font-size: 24px;
   text-align: justify;
@@ -34,4 +38,36 @@
 
 .api-id {
   color:gray;
+}
+
+@media(max-width: 576px) {
+  .info-width {
+    width: 75%;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .info-text,
+  .api-code {
+    font-size: 18px;
+  }
+
+  .about-list-item {
+    font-size: 18px;
+  }
+
+  .about-list-link {
+    font-size: 22px;
+  }
+
 }
