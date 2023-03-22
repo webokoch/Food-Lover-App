@@ -17,6 +17,11 @@ section {
     flex-basis: 44%;
 }
 
+.hero-img {
+    background-image: url("hero.jpg");
+    background-position: center;
+}
+
 .description-box {
     padding: 64px;
     background-color: white;
@@ -94,5 +99,11 @@ section {
     .map-home {
         width: 80%;
         height: 480px;
+    }
+  }
+
+  @media(max-width: 576px) {
+    #hero {
+        padding-bottom: 0 !important;
     }
   }
